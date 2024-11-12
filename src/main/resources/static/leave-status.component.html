@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leave Status</title>
+</head>
+<body>
+<div class="status-container">
+  <h2>Your Leave Applications</h2>
+  <table>
+    <tr>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let leave of leaveApplications">
+      <td>{{ leave.startDate }}</td>
+      <td>{{ leave.endDate }}</td>
+      <td>{{ leave.leaveType }}</td>
+      <td>{{ leave.status }}</td>
+      <td>
+        <button *ngIf="leave.status === 'Pending'" (click)="cancelLeave(leave.leaveId)">Cancel</button>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
